@@ -1,146 +1,161 @@
-🩺 AI-Based Diabetes Risk Prediction System
-Early Detection of Diabetes & Pre-Diabetes using Machine Learning
-📌 Project Overview
+# 🩺 AI-Based Diabetes Risk Prediction System
 
-Diabetes is one of the most rapidly increasing chronic diseases worldwide, affecting more than 537 million people. Early detection is crucial for prevention, yet nearly 50% of cases remain undiagnosed due to lack of awareness and access to clinical testing.
+### *Early Detection of Diabetes & Pre-Diabetes using Machine Learning*
 
-This project presents a Machine Learning–based screening tool that predicts the risk probability of diabetes and pre-diabetes using non-invasive survey-based indicators such as BMI, lifestyle habits, mental & physical health scores, and general health assessment.
+<div align="center">
 
-The system identifies Healthy vs At-Risk (Pre-Diabetic + Diabetic) individuals, provides personalized recommendations, and automatically generates PDF patient reports.
+</div>
 
-🎯 Key Features
+---
 
-🧠 Calibrated XGBoost Machine Learning Model
+## 🌟 Overview
 
-📈 Optimized decision threshold (0.30) for medical sensitivity
+Diabetes affects more than **537 million people** worldwide. Nearly 50% of cases remain undiagnosed due to a lack of awareness and clinical access.
 
-⚕️ Medical-Boost Logic for clinical safety
+This project presents a non-invasive screening tool that predicts diabetes and pre-diabetes risk probability using survey-based indicators like BMI, lifestyle habits, and mental/physical health scores. The system identifies at-risk individuals, provides personalized health recommendations, and automatically generates clinical PDF reports.
 
-📑 Auto-Generated PDF Reports
+## ✨ Key Features
 
-📊 Visual Analytics: Confusion Matrices, ROC-AUC, Feature Importance
+### 🧠 **Calibrated Machine Learning**
 
-🌐 Streamlit-based UI for real-time screening
+Utilizes a calibrated **XGBoost** model with an optimized decision threshold (0.30) to maximize medical sensitivity and reduce false negatives.
 
-📂 Fully reproducible ML pipeline
+### ⚕️ **Medical-Boost Logic**
 
-🤝 Built for real-world clinical utility & early screening
+A custom safety layer that adds a risk boost (up to +20%) for high-risk profiles, such as those with a BMI > 35, age ≥ 60, or a history of heart disease/stroke.
 
-🧪 Machine Learning Models & Results
-✔ Final Selected Model: Calibrated XGBoost (Binary: Healthy vs At-Risk)
-Metric	Value
-ROC-AUC	0.81
-Recall (At-Risk)	0.69
-Precision (At-Risk)	0.45
-F1-Score (At-Risk)	0.49
+### 📑 **Automated Reporting**
 
-Optimized using threshold tuning (0.30) to reduce false negatives
-Ideal for mass screening rather than diagnostic accuracy.
+Instantly generates professional PDF patient reports detailing risk scores, feature analysis, and recommended next steps.
 
-Baseline Comparison
-Model	Recall (At-Risk)	F1-Score	Notes
-Logistic Regression	0.49	0.47	Linear model baseline
-XGBoost (final)	0.69	0.49	Best clinical performance
-3-Class Model	Failed (Pre-DM recall ≈ 0%)	—	Abandoned due to class overlap
-📂 Project Structure
-📦 Diabetes-Risk-Prediction
-├── data/
-│   ├── cleaned_health_data.csv
-├── models/
-│   ├── xgb_calibrated.pkl
-│   ├── scaler.pkl
-├── diabetes_risk_app/
-│   ├── app.py
-│   ├── pdf_generator.py
-│   ├── recommender.py
-│   ├── utils.py
-├── results/
-│   ├── confusion_matrices/
-│   ├── roc_auc_curve.png
-└── ML_Project.ipynb
+### 📊 **Advanced Analytics Dashboard**
 
-🚀 How to Run the Application
-1️⃣ Create Virtual Environment
+Includes a visual suite for clinicians to evaluate model performance, including:
+
+* 📈 **ROC-AUC Curves**
+* 🎯 **Feature Importance Plots**
+* 🔥 **Normalized Confusion Matrices**
+
+---
+
+## 🚀 How it Works
+
+```mermaid
+graph TD
+    A[📋 Non-Invasive User Inputs] --> B[⚙️ Data Preprocessing]
+    B --> C[🧠 Calibrated XGBoost Model]
+    C --> D{Medical Boost?}
+    D -- Yes --> E[⚠️ Adjusted High-Risk Score]
+    D -- No --> F[✅ Standard Probability]
+    E --> G[📑 Auto-Generated PDF Report]
+    F --> G
+    G --> H[📈 Dashboard Analytics]
+
+```
+
+---
+
+## 🛠️ Technologies Used
+
+| Category | Tools |
+| --- | --- |
+| **Deep Learning / ML** | XGBoost, Logistic Regression, SHAP |
+| **Deployment** | Streamlit |
+| **Report Generation** | ReportLab |
+| **Data Processing** | StandardScaler, Pandas, NumPy |
+| **Metrics** | ROC-AUC, F1-Score, Precision, Confusion Matrix |
+
+---
+
+## 💻 Setup and Installation
+
+### 📋 Prerequisites
+
+* Python 3.8+
+* Virtual Environment (recommended)
+
+### 🔧 Installation Steps
+
+1. **Clone the Repository**:
+```bash
+git clone https://github.com/ayushkumar-alt/diabetes-early-prediction.git
+cd diabetes-early-prediction
+
+```
+
+
+2. **Create a Virtual Environment**:
+```bash
 python -m venv venv
-source venv/Scripts/activate   # Windows
+# On Windows: .\venv\Scripts\activate
+# On macOS/Linux: source venv/bin/activate
 
-2️⃣ Install Dependencies
+```
+
+
+3. **Install Dependencies**:
+```bash
 pip install -r requirements.txt
 
-3️⃣ Run Streamlit App
+```
+
+
+4. **Run the Streamlit App**:
+```bash
 streamlit run diabetes_risk_app/app.py
 
-🩻 Model Deployment Logic
-User Inputs → Preprocessing → Calibrated XGBoost Model →
-Medical Boost Adjustment → Risk Prediction + PDF Report
+```
 
-🧪 Medical Boost
 
-Used to increase clinical safety by adding a boost (up to +20%) in cases with:
 
-BMI > 35
+---
 
-Age ≥ 60
+## 📁 Project Structure
 
-History of heart disease or stroke
+```text
+📂 Diabetes-Risk-Prediction/
+├── 📂 data/                    # CDC BRFSS 2015 Public Health Dataset
+├── 📂 models/                  # Calibrated weights and scalers
+├── 📂 diabetes_risk_app/       # Core application logic
+│   ├── 🚀 app.py               # Main UI
+│   ├── 📑 pdf_generator.py     # ReportLab logic
+│   └── 💡 recommender.py       # Health suggestions
+├── 📂 results/                 # Visualization charts (ROC, Matrix)
+└── 📓 ML_Project.ipynb         # Model development & research
 
-Poor general health rating
+```
 
-📊 Visualizations Included
+---
 
-ROC-AUC Curve
+## 📈 Model Results
 
-Confusion Matrix (Normalized)
+| Model | Recall (At-Risk) | ROC-AUC | Notes |
+| --- | --- | --- | --- |
+| **Calibrated XGBoost** | **0.69** | **0.81** | **Best for mass screening** |
+| Logistic Regression | 0.49 | — | Baseline model |
 
-Feature Importance Plot
+---
 
-Probability Distribution vs Threshold
+## 🤝 Contributing
 
-3-class failure comparison chart
+Contributions are welcome! Please fork the repository and open a Pull Request for UI improvements, deep learning integrations, or multi-language support.
 
-📦 Dataset Details
+## 📜 License
 
-CDC BRFSS 2015 Public Health Dataset
+This project is licensed under the **MIT License** — free for research, education, and development.
 
-229,772 rows × 22 non-invasive features
+## 👥 Team
 
-Real-world imbalance handled with threshold tuning (not SMOTE)
+* **Ayush Kumar** (2023UG000116)
+* **Pruthviraj Shinde** (2023UG000103)
+* **Chandrapal** (2023UG000118)
 
-🧠 Tech Stack
-Category	Tools
-ML Models	XGBoost, Logistic Regression
-Deployment	Streamlit
-Explainability	SHAP
-Report Generation	ReportLab
-Scaling	StandardScaler
-Metrics	ROC-AUC, F1, Precision, Confusion Matrix
-🛠 Future Improvements
+---
 
-Add deep learning models for comparative performance
+<div align="center">
 
-Integrate real clinical lab data (HbA1c, Fasting Glucose)
+**⭐ If you found this research helpful, please star the repository! ⭐**
 
-Build mobile-friendly version
+*Created for Vidyashilp University — School of Computational & Data Sciences*
 
-Add multi-language support
-
-Deploy on cloud (AWS / Azure)
-
-📜 License
-
-MIT License — Free for research, education & development.
-
-👥 Team
-Name	ID
-Ayush Kumar	2023UG000116
-Pruthviraj Shinde	2023UG000103
-Chandrapal	2023UG000118
-🙌 Acknowledgements
-
-CDC BRFSS Open Dataset (U.S. Centres for Disease Control)
-
-Vidyashilp University — School of Computational & Data Sciences
-
-⭐ If you found this helpful
-
-Please star the repository ⭐ to support our research
+</div>
