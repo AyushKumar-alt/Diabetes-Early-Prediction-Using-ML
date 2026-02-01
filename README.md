@@ -2,6 +2,8 @@
 
 ### *Early Detection of Diabetes & Pre-Diabetes using Machine Learning*
 
+Working Demo - https://diabetesprediction-gbd2ig7hwtdmpusc6rxcjp.streamlit.app/
+
 <div align="center">
 
 </div>
