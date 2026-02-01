@@ -1,0 +1,12 @@
+# Minimal requirements - skip pyarrow (already installed)
+# Install with: pip install -r requirements_minimal.txt
+
+xgboost>=2.0.0,<4.0.0
+scikit-learn>=1.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+streamlit>=1.28.0
+plotly>=5.0.0
+shap>=0.40.0
+joblib>=1.0.0
+

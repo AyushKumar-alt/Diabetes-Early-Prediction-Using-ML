@@ -1,0 +1,20 @@
+# Core ML libraries
+xgboost>=2.0.0,<4.0.0
+scikit-learn>=1.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Web application
+streamlit>=1.28.0
+plotly>=5.0.0
+
+# Explainability
+shap>=0.40.0
+
+# Utilities
+joblib>=1.0.0
+
+# Optional (for advanced features)
+# matplotlib>=3.5.0
+# reportlab>=4.0
+

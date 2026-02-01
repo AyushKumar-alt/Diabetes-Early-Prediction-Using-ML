@@ -1,0 +1,154 @@
+🚀 DIABETES RISK PREDICTION - QUICK REFERENCE CARD
+================================================
+
+## ⚡ RUN THE APP (3 COMMANDS)
+
+```powershell
+cd c:\Users\calpo\Downloads\ML_Diabetes\diabetes_risk_app
+pip install -r requirements.txt
+streamlit run app/streamlit_app.py
+```
+
+Browser opens → http://localhost:8501
+
+---
+
+## 📊 WHAT THE APP DOES
+
+Input: 21 health indicators
+  ↓
+Process: Validate → Scale → Predict
+  ↓
+Output: Risk Level + Recommendation + Charts
+
+---
+
+## 🎯 RISK LEVELS
+
+| Probability | Level | Action |
+|------------|-------|--------|
+| < 20% | 🟢 Low Risk | Maintain lifestyle |
+| 20-40% | 🟡 Moderate | Lifestyle changes |
+| 40-70% | 🟠 High Risk | Get screened |
+| > 70% | 🔴 Very High | See doctor now |
+
+---
+
+## 📋 21 FEATURES NEEDED
+
+```
+1. Age (1-13)
+2. Sex (0/1)
+3. HighBP (0/1)
+4. HighChol (0/1)
+5. CholCheck (0/1)
+6. BMI (10-100)
+7. Smoker (0/1)
+8. Stroke (0/1)
+9. HeartDiseaseorAttack (0/1)
+10. PhysActivity (0/1)
+11. Fruits (0/1)
+12. Veggies (0/1)
+13. HvyAlcoholConsump (0/1)
+14. AnyHealthcare (0/1)
+15. NoDocbcCost (0/1)
+16. GenHlth (1-5)
+17. MentHlth (0-30)
+18. PhysHlth (0-30)
+19. DiffWalk (0/1)
+20. Education (1-6)
+21. Income (1-8)
+```
+
+---
+
+## 🐍 PYTHON ONE-LINER
+
+```python
+from core.predict import predict_risk
+r=predict_risk({'HighBP':1,'HighChol':1,'CholCheck':1,'BMI':30,'Smoker':0,'Stroke':0,'HeartDiseaseorAttack':0,'PhysActivity':1,'Fruits':1,'Veggies':1,'HvyAlcoholConsump':0,'AnyHealthcare':1,'NoDocbcCost':0,'GenHlth':3,'MentHlth':0,'PhysHlth':0,'DiffWalk':0,'Sex':1,'Age':7,'Education':4,'Income':6})
+print(f"{r['risk_level']}: {r['probability']:.0%}")
+```
+
+---
+
+## 🧪 TEST EVERYTHING
+
+```powershell
+python test_prediction.py
+```
+
+Expected: "All tests passed!"
+
+---
+
+## 📁 KEY FILES
+
+| File | What to do |
+|------|-----------|
+| `Diabetes.ipynb` | Train model, save as `bst_binary.json` |
+| `app/streamlit_app.py` | RUN: `streamlit run app/streamlit_app.py` |
+| `core/predict.py` | Main prediction engine |
+| `models/bst_binary.json` | Your trained model (ADD HERE) |
+| `test_prediction.py` | Run: `python test_prediction.py` |
+
+---
+
+## ⚙️ CUSTOMIZE
+
+### Change threshold (sensitivity ↔ specificity)
+Edit `core/predict.py` line 10:
+```python
+OPTIMAL_THRESHOLD = 0.30  # Make higher = fewer alerts
+```
+
+### Change risk levels
+Edit `utils/risk_stratification.py` `stratify_risk()` function
+
+### Change UI
+Edit `app/streamlit_app.py`
+
+---
+
+## 🔴 QUICK FIXES
+
+| Problem | Fix |
+|---------|-----|
+| "Module not found" | `pip install -r requirements.txt` |
+| "Model not found" | Train in notebook, save as `bst_binary.json` |
+| Port 8501 busy | `streamlit run app/streamlit_app.py --server.port 8502` |
+| App won't start | Run `python test_prediction.py` to debug |
+
+---
+
+## 📖 DOCS
+
+- `COMPLETE_GUIDE.md` - Full overview
+- `README.md` - Full documentation  
+- `SETUP_GUIDE.md` - Installation steps
+- `RUN_APP.md` - Detailed instructions
+
+---
+
+## ✅ CHECKLIST
+
+- [ ] Run: `pip install -r requirements.txt`
+- [ ] Train model in `Diabetes.ipynb`
+- [ ] Save: `bst.save_model("models/bst_binary.json")`
+- [ ] Run: `python test_prediction.py` (verify all OK)
+- [ ] Run: `streamlit run app/streamlit_app.py` (start app)
+- [ ] Test with sample patient data
+- [ ] Deploy (optional)
+
+---
+
+## 🎯 YOU'RE DONE
+
+App is production-ready. Just:
+1. Save trained model
+2. Run app
+3. Start predicting!
+
+---
+
+Start now: `streamlit run app/streamlit_app.py`

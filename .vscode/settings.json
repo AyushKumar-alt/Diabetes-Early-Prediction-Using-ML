@@ -1,0 +1,10 @@
+{
+    "python.defaultInterpreterPath": "C:\\Python314\\python.exe",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}",
+        "${workspaceFolder}/diabetes_risk_app"
+    ],
+    "jupyter.defaultKernel": "python3",
+    "python.analysis.autoImportCompletions": true
+}
+

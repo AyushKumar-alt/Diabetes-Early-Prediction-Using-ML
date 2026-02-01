@@ -1,0 +1,26 @@
+# Core dependencies
+# Note: If xgboost installation fails, try: pip install xgboost --no-cache-dir
+xgboost>=2.0.0,<4.0.0
+pandas>=1.5.0
+numpy>=1.21.0
+scikit-learn>=1.0.0
+
+# Web application
+streamlit>=1.28.0
+plotly>=5.0.0
+
+# Explainability
+shap>=0.40.0
+
+# PDF Report Generation
+reportlab>=4.0
+
+# Visualization
+matplotlib>=3.5.0
+
+# Optional: Gauge charts
+# streamlit-echarts>=1.6.1
+
+# Utilities
+joblib>=1.0.0
+
