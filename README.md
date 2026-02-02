@@ -10,15 +10,15 @@ Working Demo - https://diabetesprediction-gbd2ig7hwtdmpusc6rxcjp.streamlit.app/
 
 ---
 
-## 🌟 Overview
+##  Overview
 
 Diabetes affects more than **537 million people** worldwide. Nearly 50% of cases remain undiagnosed due to a lack of awareness and clinical access.
 
 This project presents a non-invasive screening tool that predicts diabetes and pre-diabetes risk probability using survey-based indicators like BMI, lifestyle habits, and mental/physical health scores. The system identifies at-risk individuals, provides personalized health recommendations, and automatically generates clinical PDF reports.
 
-## ✨ Key Features
+##  Key Features
 
-### 🧠 **Calibrated Machine Learning**
+###  **Calibrated Machine Learning**
 
 Utilizes a calibrated **XGBoost** model with an optimized decision threshold (0.30) to maximize medical sensitivity and reduce false negatives.
 
@@ -30,28 +30,28 @@ A custom safety layer that adds a risk boost (up to +20%) for high-risk profiles
 
 Instantly generates professional PDF patient reports detailing risk scores, feature analysis, and recommended next steps.
 
-### 📊 **Advanced Analytics Dashboard**
+###  **Advanced Analytics Dashboard**
 
 Includes a visual suite for clinicians to evaluate model performance, including:
 
-* 📈 **ROC-AUC Curves**
-* 🎯 **Feature Importance Plots**
-* 🔥 **Normalized Confusion Matrices**
+*  **ROC-AUC Curves**
+*  **Feature Importance Plots**
+*  **Normalized Confusion Matrices**
 
 ---
 
-## 🚀 How it Works
+##  How it Works
 
 ```mermaid
 graph TD
-    A[📋 Non-Invasive User Inputs] --> B[⚙️ Data Preprocessing]
-    B --> C[🧠 Calibrated XGBoost Model]
+    A[Non-Invasive User Inputs] --> B[Data Preprocessing]
+    B --> C[Calibrated XGBoost Model]
     C --> D{Medical Boost?}
-    D -- Yes --> E[⚠️ Adjusted High-Risk Score]
-    D -- No --> F[✅ Standard Probability]
-    E --> G[📑 Auto-Generated PDF Report]
+    D -- Yes --> E[Adjusted High-Risk Score]
+    D -- No --> F[Standard Probability]
+    E --> G[Auto-Generated PDF Report]
     F --> G
-    G --> H[📈 Dashboard Analytics]
+    G --> H[Dashboard Analytics]
 
 ```
 
@@ -69,9 +69,9 @@ graph TD
 
 ---
 
-## 💻 Setup and Installation
+## Setup and Installation
 
-### 📋 Prerequisites
+### Prerequisites
 
 * Python 3.8+
 * Virtual Environment (recommended)
@@ -112,24 +112,24 @@ streamlit run diabetes_risk_app/app.py
 
 ---
 
-## 📁 Project Structure
+## 📁Project Structure
 
 ```text
 📂 Diabetes-Risk-Prediction/
-├── 📂 data/                    # CDC BRFSS 2015 Public Health Dataset
-├── 📂 models/                  # Calibrated weights and scalers
-├── 📂 diabetes_risk_app/       # Core application logic
-│   ├── 🚀 app.py               # Main UI
-│   ├── 📑 pdf_generator.py     # ReportLab logic
-│   └── 💡 recommender.py       # Health suggestions
-├── 📂 results/                 # Visualization charts (ROC, Matrix)
-└── 📓 ML_Project.ipynb         # Model development & research
+├──  data/                    # CDC BRFSS 2015 Public Health Dataset
+├──  models/                  # Calibrated weights and scalers
+├──  diabetes_risk_app/       # Core application logic
+│   ├──  app.py               # Main UI
+│   ├──  pdf_generator.py     # ReportLab logic
+│   └──  recommender.py       # Health suggestions
+├──  results/                 # Visualization charts (ROC, Matrix)
+└──  ML_Project.ipynb         # Model development & research
 
 ```
 
 ---
 
-## 📈 Model Results
+##  Model Results
 
 | Model | Recall (At-Risk) | ROC-AUC | Notes |
 | --- | --- | --- | --- |
@@ -138,11 +138,11 @@ streamlit run diabetes_risk_app/app.py
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please fork the repository and open a Pull Request for UI improvements, deep learning integrations, or multi-language support.
 
-## 📜 License
+##  License
 
 This project is licensed under the **MIT License** — free for research, education, and development.
 
